@@ -2,4 +2,6 @@
 System administrator tools
 
 ----
-Cu doamne-ajută
+
+Requirements:
+- Django 1.10.1
