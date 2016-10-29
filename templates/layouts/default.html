@@ -1,13 +1,119 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>{% block title %}Default title{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/images/icons/favicon.ico">
+    <!--Loading bootstrap css-->
+    <link type="text/css" rel="stylesheet"
+          href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="/static/styles/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/styles/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/styles/animate.css">
+    <link type="text/css" rel="stylesheet" href="/static/styles/main.css">
 </head>
 <body>
+<div>
 
-{% block content %}No content{% endblock %}
+    <!--BEGIN BACK TO TOP-->
+    <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!--END BACK TO TOP-->
+    <!--BEGIN TOPBAR-->
+    <div id="header-topbar-option-demo" class="page-header-topbar">
+        <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3"
+             class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span
+                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a id="logo" href="/" class="navbar-brand">
+                    <span class="fa fa-rocket"></span>
+                    <span class="logo-text">admin.md</span>
+                    <span style="display: none" class="logo-text-icon">µ</span>
+                </a>
+            </div>
+            <div class="topbar-main"></div>
+        </nav>
+
+    </div>
+    <!--END TOPBAR-->
+    <div id="wrapper">
+        <!--BEGIN SIDEBAR MENU-->
+        <nav id="sidebar" role="navigation" data-step="2"
+             data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
+             data-position="right" class="navbar-default navbar-static-side">
+            <div class="sidebar-collapse menu-scroll">
+                <ul id="side-menu" class="nav">
+
+                    <div class="clearfix"></div>
+
+                    <li class="active">
+                        <a href="/">
+                            <i class="fa fa-tachometer fa-fw">
+                                <div class="icon-bg bg-orange"></div>
+                            </i>
+                            <span class="menu-title">Overview</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-tachometer fa-fw">
+                                <div class="icon-bg bg-orange"></div>
+                            </i>
+                            <span class="menu-title">Reverse IP</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!--END SIDEBAR MENU-->
+
+        <!--BEGIN PAGE WRAPPER-->
+        <div id="page-wrapper">
+            <!--BEGIN TITLE-->
+            <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                <div class="page-header pull-left">
+                    <div class="page-title">
+                        Overview
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!--END TITLE -->
+
+            <!--BEGIN CONTENT-->
+
+            {% block content %}No content{% endblock %}
+
+            <!--END CONTENT-->
+
+            <!--BEGIN FOOTER-->
+            <div id="footer">
+                <div class="copyright">
+                    <a href="http://themifycloud.com">2016 © admin.md</a>
+                </div>
+            </div>
+            <!--END FOOTER-->
+
+        </div>
+        <!--END PAGE WRAPPER-->
+    </div>
+</div>
+
+<script src="/static/script/jquery-1.10.2.min.js"></script>
+<script src="/static/script/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/script/bootstrap.min.js"></script>
+<script src="/static/script/bootstrap-hover-dropdown.js"></script>
+<script src="/static/script/html5shiv.js"></script>
+<script src="/static/script/respond.min.js"></script>
+
+<script src="/static/script/main.js"></script>
 
 </body>
 </html>
