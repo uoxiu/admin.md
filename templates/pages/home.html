@@ -9,29 +9,79 @@
     <div class="page-content">
         <div id="tab-general">
             <div class="row mbl">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
                             <h4 class="mbs">
-                                My IP:
+                                IP: <b>{{ ip }}</b>
                             </h4>
+                            <br>
                             <p class="help-block">
-                                Your IP details
+                                IP details
                             </p>
-                            asd
+                            <table class="table">
+                                <tr>
+                                    <th>Country:</th>
+                                    <td>{{ addr.country }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ISP:</th>
+                                    <td>{{ addr.isp }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Organisation:</th>
+                                    <td>{{ addr.organisation }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Hostname:</th>
+                                    <td>{{ addr.hostname }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Local IP:</th>
+                                    <td class="local-ip">...</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
                             <h4 class="mbs">
-                                My IP:
+                                Browser
                             </h4>
+                            <br>
                             <p class="help-block">
-                                Your IP details
+                                Browser details
                             </p>
-                            asd
+                            <table class="table">
+                                <tr>
+                                    <th>Browser:</th>
+                                    <td>{{ user_agent.browser.family }} {{ user_agent.browser.version_string }}</td>
+                                </tr>
+                                <tr>
+                                    <th>OS:</th>
+                                    <td>{{ user_agent.os.family }} {{ user_agent.os.version_string }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Device:</th>
+                                    <td>{{ user_agent.device.family }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Language:</th>
+                                    <td>{{ language }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tor:</th>
+                                    <td>
+                                        {% if is_tor %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
