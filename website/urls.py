@@ -17,5 +17,8 @@ from django.conf.urls import url
 import core.views
 
 urlpatterns = [
-    url(r'^$', core.views.home.index)
+    url(r'^reverse-ip$', core.views.reverse_ip.index),
+    url(r'^reverse-ip/find$', core.views.reverse_ip.find_domains),
+
+    url(r'^$', core.views.home.index),
 ]

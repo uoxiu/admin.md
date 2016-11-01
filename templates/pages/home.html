@@ -1,7 +1,8 @@
 {% extends "layouts/default.html" %}
 {% load staticfiles %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Admin Tools{% endblock %}
+{% block title_header %}IP Check{% endblock %}
 
 {% block content %}
 
@@ -12,14 +13,19 @@
                 <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
-                            <h4 class="mbs">
-                                IP: <b>{{ ip }}</b>
-                            </h4>
+                            <form class="form-inline" method="get" action="/">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="ip" value="{{ ip }}"/>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Check</button>
+                            </form>
                             <br>
-                            <p class="help-block">
-                                IP details
-                            </p>
-                            <table class="table">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th colspan="2">
+                                        Details
+                                    </th>
+                                </tr>
                                 <tr>
                                     <th>Country:</th>
                                     <td>{{ addr.country }}</td>
@@ -27,10 +33,6 @@
                                 <tr>
                                     <th>ISP:</th>
                                     <td>{{ addr.isp }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Organisation:</th>
-                                    <td>{{ addr.organisation }}</td>
                                 </tr>
                                 <tr>
                                     <th>Hostname:</th>
@@ -51,10 +53,12 @@
                                 Browser
                             </h4>
                             <br>
-                            <p class="help-block">
-                                Browser details
-                            </p>
-                            <table class="table">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th colspan="2">
+                                        Details
+                                    </th>
+                                </tr>
                                 <tr>
                                     <th>Browser:</th>
                                     <td>{{ user_agent.browser.family }} {{ user_agent.browser.version_string }}</td>
@@ -70,16 +74,6 @@
                                 <tr>
                                     <th>Language:</th>
                                     <td>{{ language }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Tor:</th>
-                                    <td>
-                                        {% if is_tor %}
-                                            Yes
-                                        {% else %}
-                                            No
-                                        {% endif %}
-                                    </td>
                                 </tr>
                             </table>
                         </div>

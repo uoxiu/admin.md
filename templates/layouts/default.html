@@ -51,9 +51,9 @@
 
                     <div class="clearfix"></div>
 
-                    <li class="active">
+                    <li>
                         <a href="/">
-                            <i class="fa fa-tachometer fa-fw">
+                            <i class="fa fa-bolt fa-fw">
                                 <div class="icon-bg bg-orange"></div>
                             </i>
                             <span class="menu-title">Overview</span>
@@ -61,8 +61,8 @@
                     </li>
 
                     <li>
-                        <a href="#">
-                            <i class="fa fa-tachometer fa-fw">
+                        <a href="/reverse-ip">
+                            <i class="fa fa-arrow-left fa-fw">
                                 <div class="icon-bg bg-orange"></div>
                             </i>
                             <span class="menu-title">Reverse IP</span>
@@ -80,7 +80,7 @@
             <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                 <div class="page-header pull-left">
                     <div class="page-title">
-                        Overview
+                        {% block title_header %}{% endblock %}
                     </div>
                 </div>
                 <div class="clearfix"></div>

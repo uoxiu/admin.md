@@ -1,13 +1,9 @@
-def is_tor(ip):
-    import urllib
+import socket
 
-    tor = urllib.urlopen('https://check.torproject.org/exit-addresses')
+def validate_ip(ip):
+    try:
+        socket.inet_aton(ip)
+        return True
+    except socket.error:
+        return False
 
-    for ip_tor in tor.readlines():
-        ip_tor = ip_tor.replace("\n", "")
-        if "ExitAddress" in ip_tor:
-            ip_tor = ip_tor.split(" ")[1]
-            if ip == ip_tor:
-                return True
-
-    return False

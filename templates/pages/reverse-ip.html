@@ -1,0 +1,37 @@
+{% extends "layouts/default.html" %}
+{% load staticfiles %}
+
+{% block title %}Reverse IP{% endblock %}
+{% block title_header %}Reverse IP{% endblock %}
+
+{% block content %}
+
+
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="panel">
+                <div class="panel-body">
+
+                    Find other sites hosted on a web server by entering a domain or IP address above
+                    <br>
+                    <br>
+
+                    <form class="form-inline" method="get" action="/reverse-ip">
+                        <div class="form-group">
+                            <label>IP Address: </label>
+                            <input type="text" class="form-control" name="ip" placeholder="0.0.0.0" value="{{ ip }}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Get domains</button>
+                    </form>
+                    <br>
+                    {% if ip %}
+                        <div class="reverse-ip" data-ip="{{ ip }}">
+                            Please wait...
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

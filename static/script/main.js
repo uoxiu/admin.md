@@ -87,6 +87,22 @@ $(function () {
         });
     }
 
+    if ($('.reverse-ip').length) {
+        $('.reverse-ip').each(function () {
+            var ip = $(this).attr('data-ip');
+            var $form = $(this);
+            if (ip) {
+                $.get('/reverse-ip/find?ip=' + ip, function (data) {
+                    if (data.error) {
+                        $form.text(data.message);
+                    } else {
+                        $form.html('<b>Domains:</b><br>' + data.list.join('<br>'));
+                    }
+                })
+            }
+        });
+    }
+
     //BEGIN MENU SIDEBAR
     $('#sidebar').css('min-height', '100%');
 

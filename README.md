@@ -13,4 +13,5 @@ Dep:
     pip install pyyaml ua-parser user-agents
     pip install django-user-agents
     pip install pygeoip
+    pip install requests
 ```
