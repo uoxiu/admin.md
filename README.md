@@ -1,6 +1,8 @@
 # admin.md
 System administrator tools
 
+Website: http://admin.md
+
 ----
 
 Requirements:
@@ -9,9 +11,12 @@ Requirements:
 
 Dep:
 ```
+    pip install django
     pip install django-ipware
     pip install pyyaml ua-parser user-agents
     pip install django-user-agents
     pip install pygeoip
     pip install requests
+    
+    manage.py runserver 0.0.0.0:80
 ```
