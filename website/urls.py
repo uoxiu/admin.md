@@ -20,5 +20,8 @@ urlpatterns = [
     url(r'^reverse-ip$', core.views.reverse_ip.index),
     url(r'^reverse-ip/find$', core.views.reverse_ip.find_domains),
 
+    url(r'^black-list$', core.views.black_list.index),
+    url(r'^black-list/check$', core.views.black_list.check),
+
     url(r'^$', core.views.home.index),
 ]

@@ -1,20 +1,17 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from core.util import validate_ip
+from core.util import prepare_ip
 from core.libraries import bing
+from core.util import reverse_dns
 import socket
 
 
 def index(request):
     ip = request.GET.get('ip', '')
-    if ip and not validate_ip(ip):
-        try:
-            ip = socket.gethostbyname(ip)
-        except:
-            ip = ''
+    ip = prepare_ip(ip)
 
     context = {
-        'ip': ip
+        'ip': ip if ip else ''
     }
 
     return render(request, 'pages/reverse-ip.html', context)
@@ -22,10 +19,15 @@ def index(request):
 
 def find_domains(request):
     ip = request.GET.get('ip', '')
+    ip = prepare_ip(ip)
 
-    if ip and validate_ip(ip):
+    if ip:
 
         domains = bing.domains(ip)
+
+        reverse_domain = reverse_dns(ip)
+        if reverse_domain:
+            domains.append(reverse_domain)
 
         if domains:
             return JsonResponse({

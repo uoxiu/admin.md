@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+    <tr>
+        <th>Status</th>
+        <th>Blacklist</th>
+        <th>Reason</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>
+            {% if result.status %}
+                <label class="label label-success">OK</label>
+            {% else %}
+                <label class="label label-danger">LISTED</label>
+            {% endif %}
+        </td>
+        <td>
+            {{ result.server }}
+        </td>
+        <td>
+            {{ result.message }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

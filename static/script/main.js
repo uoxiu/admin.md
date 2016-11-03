@@ -103,6 +103,18 @@ $(function () {
         });
     }
 
+    if ($('.black-list').length) {
+        $('.black-list').each(function () {
+            var ip = $(this).attr('data-ip');
+            var $form = $(this);
+            if (ip) {
+                $.get('/black-list/check?ip=' + ip, function (data) {
+                    $form.html(data.message);
+                })
+            }
+        });
+    }
+
     //BEGIN MENU SIDEBAR
     $('#sidebar').css('min-height', '100%');
 
