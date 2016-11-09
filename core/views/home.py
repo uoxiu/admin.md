@@ -5,26 +5,31 @@ from ipware.ip import get_ip
 from core.util import prepare_ip
 from core.util import reverse_dns
 import pygeoip
-import socket
-
 
 def index(request):
     geo_ip_country = pygeoip.GeoIP(settings.GEOIP_COUNTRY_PATH)
     geo_ip_isp = pygeoip.GeoIP(settings.GEOIP_ISP_PATH)
 
-    ip = request.GET.get('ip', '')
-    ip = prepare_ip(ip)
+    input_address = request.GET.get('ip', None)
 
-    if not ip:
+    if input_address is None:
         ip = get_ip(request)
+    else:
+        ip = prepare_ip(input_address)
 
-    context = {
-        'ip': ip,
-        'addr': {
+    if ip:
+        address = {
+            'ip': ip,
             'country': geo_ip_country.country_name_by_addr(ip),
             'isp': geo_ip_isp.isp_by_addr(ip),
-            'hostname': reverse_dns(ip)
-        },
+            'hostname': reverse_dns(ip),
+        }
+    else:
+        address = {}
+
+    context = {
+        'input_address': input_address,
+        'address': address,
         'user_agent': get_user_agent(request),
         'language': request.LANGUAGE_CODE
     }

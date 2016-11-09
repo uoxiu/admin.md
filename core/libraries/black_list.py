@@ -63,7 +63,8 @@ bls = [
 
 
 def check(domain):
-    results = []
+    good_results = []
+    bad_results = []
     try:
         ip = socket.gethostbyname(domain)
         clear = True
@@ -92,13 +93,20 @@ def check(domain):
                 print 'Message: ' + exc.message
                 continue
 
-            results.append({
-                'status': status,
-                'server': bl,
-                'message': message
-            })
+            if status:
+                good_results.append({
+                    'status': status,
+                    'server': bl,
+                    'message': message
+                })
+            else:
+                bad_results.append({
+                    'status': status,
+                    'server': bl,
+                    'message': message
+                })
 
-        return clear, results
+        return clear, bad_results + good_results
 
     except Exception, exc:
-        return False, results
+        return False, []

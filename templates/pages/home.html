@@ -15,29 +15,45 @@
                         <div class="panel-body">
                             <form class="form-inline" method="get" action="/">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="ip" value="{{ ip }}"/>
+                                    {% if input_address %}
+                                    <input type="text" class="form-control" name="ip" value="{{ input_address }}"/>
+                                    {% else %}
+                                    <input type="text" class="form-control" name="ip" placeholder="Hostname or IP"/>
+                                    {% endif %}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Check</button>
                             </form>
                             <br>
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Country:</th>
-                                    <td>{{ addr.country }}</td>
-                                </tr>
-                                <tr>
-                                    <th>ISP:</th>
-                                    <td>{{ addr.isp }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Hostname:</th>
-                                    <td>{{ addr.hostname }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Local IP:</th>
-                                    <td class="local-ip">...</td>
-                                </tr>
-                            </table>
+                            {% if address %}
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>IP:</th>
+                                        <td>
+                                            <b>{{ address.ip }}</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Country:</th>
+                                        <td>{{ address.country }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>ISP:</th>
+                                        <td>{{ address.isp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Hostname:</th>
+                                        <td>{{ address.hostname }}</td>
+                                    </tr>
+                                    {% if not input_address %}
+                                        <tr>
+                                            <th>Local IP:</th>
+                                            <td class="local-ip">...</td>
+                                        </tr>
+                                    {% endif %}
+                                </table>
+                            {% else %}
+                                <div class="alert alert-danger">No info found for host "{{ input_address }}"</div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
