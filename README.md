@@ -18,5 +18,5 @@ Dep:
     pip install pygeoip
     pip install requests
     
-    manage.py runserver 0.0.0.0:80
+    python manage.py runserver 0.0.0.0:80
 ```
