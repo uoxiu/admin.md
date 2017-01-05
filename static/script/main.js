@@ -103,12 +103,12 @@ $(function () {
         });
     }
 
-    if ($('.black-list').length) {
-        $('.black-list').each(function () {
+    if ($('.blacklist').length) {
+        $('.blacklist').each(function () {
             var ip = $(this).attr('data-ip');
             var $form = $(this);
             if (ip) {
-                $.get('/black-list/check?ip=' + ip, function (data) {
+                $.get('/blacklist/check?ip=' + ip, function (data) {
                     $form.html(data.message);
                 })
             }

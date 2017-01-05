@@ -12,7 +12,7 @@ def index(request):
         'ip': ip if ip else ''
     }
 
-    return render(request, 'pages/black-list.html', context)
+    return render(request, 'pages/blacklist.html', context)
 
 
 def check(request):

@@ -1,0 +1,37 @@
+{% extends "layouts/default.html" %}
+{% load staticfiles %}
+
+{% block title %}BlackList Checker{% endblock %}
+{% block title_header %}BlackList Checker{% endblock %}
+
+{% block content %}
+
+
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="panel">
+                <div class="panel-body">
+
+                    The blacklist check will test a mail server IP address against over 50 DNS based email blacklists
+                    <br>
+                    <br>
+
+                    <form class="form-inline" method="get" action="/blacklist">
+                        <div class="form-group">
+                            <label>IP Address: </label>
+                            <input type="text" class="form-control" name="ip" placeholder="0.0.0.0" value="{{ ip }}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verify</button>
+                    </form>
+                    <br>
+                    {% if ip %}
+                        <div class="blacklist" data-ip="{{ ip }}">
+                            Please wait...
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

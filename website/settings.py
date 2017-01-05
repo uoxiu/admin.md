@@ -119,5 +119,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-GEOIP_COUNTRY_PATH = 'resources/geoip/GeoIP.dat'
-GEOIP_ISP_PATH = 'resources/geoip/GeoIPASNum.dat'
+GEOIP_COUNTRY_PATH = '/var/www/admin.md/resources/geoip/GeoIP.dat'
+GEOIP_ISP_PATH = '/var/www/admin.md/resources/geoip/GeoIPASNum.dat'
