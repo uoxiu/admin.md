@@ -17,6 +17,7 @@ Dep:
     pip install django-user-agents
     pip install pygeoip
     pip install requests
+    pip install pythonwhois
     
     python manage.py runserver 0.0.0.0:80
 ```
