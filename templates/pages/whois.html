@@ -1,0 +1,35 @@
+{% extends "layouts/default.html" %}
+{% load staticfiles %}
+
+{% block title %}Whois{% endblock %}
+{% block title_header %}Whois{% endblock %}
+
+{% block content %}
+
+
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="panel">
+                <div class="panel-body">
+
+                    Get whois informations
+                    <br>
+                    <br>
+
+                    <form class="form-inline" method="get" action="/whois">
+                        <div class="form-group">
+                            <label>Domain: </label>
+                            <input type="text" class="form-control" name="domain" placeholder="example.com" value="{{ domain }}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Whois</button>
+                    </form>
+                    <br>
+                    {% if domain %}
+                        <pre class="whois-data" data-domain="{{ domain }}">Please wait...</pre>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

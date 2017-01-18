@@ -115,6 +115,18 @@ $(function () {
         });
     }
 
+    if ($('.whois-data').length) {
+        $('.whois-data').each(function () {
+            var domain = $(this).attr('data-domain');
+            var $form = $(this);
+            if (domain) {
+                $.get('/whois/info?domain=' + domain, function (data) {
+                    $form.html(data.message);
+                })
+            }
+        });
+    }
+
     //BEGIN MENU SIDEBAR
     $('#sidebar').css('min-height', '100%');
 

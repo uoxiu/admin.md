@@ -19,6 +19,9 @@ import core.views
 urlpatterns = [
     url(r'^reverse-ip$', core.views.reverse_ip.index),
     url(r'^reverse-ip/find$', core.views.reverse_ip.find_domains),
+    
+    url(r'^whois$', core.views.whois.index),
+    url(r'^whois/info$', core.views.whois.get_info),
 
     url(r'^blacklist$', core.views.black_list.index),
     url(r'^blacklist/check$', core.views.black_list.check),
